@@ -1,10 +1,12 @@
 body {
-  font-family: 'Quicksand', sans-serif;
-  background: #F4F7FD;
+    font-family: 'Quicksand', sans-serif;
+    background: #F4F7FD;
+    background: url(https://github.com/images/modules/site/heroes/simple-codelines.svg),#2b3137;
+    background-size: 100% auto;
 }
 
-.navbar {
-  padding: 16px;
+.login .container {
+    max-width: 1024px!important;
 }
 
 .navbar-dark .navbar-nav .nav-link {

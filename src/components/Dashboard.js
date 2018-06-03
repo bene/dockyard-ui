@@ -31,8 +31,8 @@ class Dashboard extends Component {
     render() {
 
         return (
-            <div className="App">
-                <Navbar color="dark" dark expand="md">
+            <div>
+                <Navbar color="dark" dark expand="md" className="p-3">
                     <Container>
                         <NavbarBrand href="/"><span role="img" aria-label="">🐳</span> Dockyard</NavbarBrand>
                         <NavbarToggler onClick={ this.toggle } />
@@ -64,7 +64,7 @@ class Dashboard extends Component {
 
                 <main role={"main"} className={"mt-4 container"}>
 
-                    <Projects />
+                    <Project />
 
                     <div className={"row"}>
                         <div className={"col-12"}>
