@@ -1,3 +1,44 @@
+:root {
+  --primary: #00bfa5!important;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: #F4F7FD;
+}
+
 .bg-cyan {
   background: #00bfa5;
+}
+
+.navbar {
+  text-transform: uppercase;
+  padding: 16px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #ffffff;
+  transition: color 0.2s;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #00bfa5;
+}
+
+.card.border-danger {
+  border-width: 1px 1px 1px 4px;
+  border-color: rgba(0,0,0,.125)!important;
+  border-left-color: var(--danger)!important;
+}
+
+.card.border-success {
+  border-width: 1px 1px 1px 4px;
+  border-color: rgba(0,0,0,.125)!important;
+  border-left-color: var(--success)!important;
+}
+
+@media (min-width: 3440px) {
+  .container {
+    max-width: 1640px;
+  }
 }

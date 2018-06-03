@@ -31,7 +31,7 @@ class Project extends Component {
             <div className="App">
                 <Navbar color="dark" dark expand="md">
                     <Container>
-                        <NavbarBrand href="/">Dockyard</NavbarBrand>
+                        <NavbarBrand href="/"><span role="img" aria-label="">🐳</span> Dockyard</NavbarBrand>
                         <NavbarToggler onClick={ this.toggle } />
 
                         <Collapse isOpen={ this.state.isOpen } navbar>
@@ -53,10 +53,24 @@ class Project extends Component {
                     </Container>
                 </Navbar>
 
+                <Navbar className="shadow-sm" color="light" light expand="md">
+                    <Container>
+                        <div className="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" className="btn btn-outline-secondary">Run</button>
+                            <button type="button" className="btn btn-outline-secondary">Build</button>
+                            <button type="button" className="btn btn-outline-secondary">Test</button>
+                        </div>
+
+                        <div className="btn-group float-right" role="group" aria-label="Basic example">
+                            <button type="button" className="btn btn-outline-primary">Release</button>
+                        </div>
+                    </Container>
+                </Navbar>
+
                 <main role={"main"} className={"mt-4 container"}>
                     <div className={"row"}>
                         <div className={"col-sm-4"}>
-                            <div className="card mb-3">
+                            <div className="card border-success shadow-sm mb-3">
                                 <div className="card-header">Build complete</div>
                                 <div className="card-body">
                                     <h5 className="card-title">fe01b92</h5>
@@ -79,7 +93,7 @@ class Project extends Component {
                                 </div>
                             </div>
 
-                            <div className="card mb-3">
+                            <div className="card border-success shadow-sm mb-3">
                                 <div className="card-header">Build complete</div>
                                 <div className="card-body">
                                     <h5 className="card-title">fe01b92</h5>
@@ -102,7 +116,7 @@ class Project extends Component {
                                 </div>
                             </div>
 
-                            <div className="card text-danger mb-3">
+                            <div className="card border-danger shadow-sm mb-3">
                                 <div className="card-header">Test failed</div>
                                 <div className="card-body">
                                     <h5 className="card-title">fe01b92</h5>
@@ -127,17 +141,8 @@ class Project extends Component {
                         </div>
 
                         <div className={"col-sm-8"}>
-                            <div className="btn-group mb-4" role="group" aria-label="Basic example">
-                                <button type="button" className="btn btn-outline-secondary">Run</button>
-                                <button type="button" className="btn btn-outline-secondary">Build</button>
-                                <button type="button" className="btn btn-outline-secondary">Test</button>
-                            </div>
-
-                            <div className="btn-group mb-4 float-right" role="group" aria-label="Basic example">
-                                <button type="button" className="btn btn-outline-primary">Release</button>
-                            </div>
-                            <div className="jumbotron mb-4 bg-cyan text-white rounded">
-                                <div className="container">
+                            <div className="shadow-sm jumbotron mb-4 bg-primary text-white rounded">
+                                <Container>
                                     <p className="h3">bene/dockyard</p>
                                     <table>
                                         <tbody>
@@ -155,10 +160,10 @@ class Project extends Component {
                                         </tr>
                                         </tbody>
                                     </table>
-                                </div>
+                                </Container>
                             </div>
 
-                            <div className="card">
+                            <div className="shadow-sm card">
                                 <div className="card-header">
                                     Logs
                                 </div>
