@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import Project from './components/Project'
+import Dashboard from "./components/Dashboard"
 
 class App extends Component {
   render() {
     return (
-      <Project />
-    );
+      <Dashboard />
+    )
   }
 }
 
-export default App;
+export default App
