@@ -1,30 +1,57 @@
 import React, { Component } from 'react'
+import {
+    Container,
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink } from 'reactstrap';
 
 class Project extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+            isOpen: false
+        };
+    }
+    toggle() {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+    }
 
     render() {
 
         return (
             <div className="App">
-                <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div className="container">
-                        <a className="navbar-brand" href="#">Dockyard</a>
-                        <button className="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
+                <Navbar color="dark" dark expand="md">
+                    <Container>
+                        <NavbarBrand href="/">Dockyard</NavbarBrand>
+                        <NavbarToggler onClick={ this.toggle } />
 
-                        <div className="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-                            <ul className="navbar-nav mr-auto">
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">Projects</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">Notifications</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+                        <Collapse isOpen={ this.state.isOpen } navbar>
+                            <Nav navbar>
+                                <NavItem>
+                                    <NavLink href="/projects/">Projects</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="/notifications">Notifications</NavLink>
+                                </NavItem>
+                            </Nav>
+
+                            <Nav className="ml-auto" navbar>
+                                <NavItem>
+                                    <NavLink href="/projects/">Account</NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Collapse>
+                    </Container>
+                </Navbar>
 
                 <main role={"main"} className={"mt-4 container"}>
                     <div className={"row"}>
