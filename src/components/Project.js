@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Container } from 'reactstrap';
+import React, {Component} from 'react'
+import {Container} from 'reactstrap';
 
 class Project extends Component {
 
@@ -107,22 +107,38 @@ class Project extends Component {
                                 Logs
                             </div>
                             <div className="card-body">
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
-                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from 195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
+                                <p className="card-text m-0">2018/06/03 08:40:06 http: TLS handshake error from
+                                    195.154.255.242:42193</p>
                             </div>
                         </div>
                     </div>
@@ -131,6 +147,7 @@ class Project extends Component {
         )
     }
 }
+
 class ProjectMenu extends Component {
 
     render() {
@@ -150,5 +167,5 @@ class ProjectMenu extends Component {
     }
 }
 
-export { ProjectMenu }
+export {ProjectMenu}
 export default Project

@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Card, Row, Col } from 'reactstrap'
+import React, {Component} from 'react'
+import {Card, Row, Col} from 'reactstrap'
 
 class Projects extends Component {
 
@@ -54,5 +54,5 @@ class ProjectsMenu extends Component {
     }
 }
 
-export { ProjectsMenu }
+export {ProjectsMenu}
 export default Projects

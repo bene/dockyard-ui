@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Project, {ProjectMenu} from "./Project"
 import {
     Container,
@@ -8,7 +8,8 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink } from 'reactstrap'
+    NavLink
+} from 'reactstrap'
 import Projects, {ProjectsMenu} from "./Projects";
 import Notifications from "./Notifications";
 
@@ -29,9 +30,9 @@ class Dashboard extends Component {
                 <Navbar color="dark" dark expand="md" className="p-3">
                     <Container>
                         <NavbarBrand href="/"><span role="img" aria-label="">🐳</span> Dockyard</NavbarBrand>
-                        <NavbarToggler onClick={ () => this.setState({ isOpen: !this.state.isOpen }) } />
+                        <NavbarToggler onClick={() => this.setState({isOpen: !this.state.isOpen})}/>
 
-                        <Collapse isOpen={ this.state.isOpen } navbar>
+                        <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav navbar>
                                 <NavItem>
                                     <NavLink href="/projects">Projects</NavLink>
@@ -52,17 +53,17 @@ class Dashboard extends Component {
 
                 <Navbar className="shadow-sm" color="light" light expand="md">
                     <Container>
-                        <ProjectsMenu />
+                        <ProjectsMenu/>
                     </Container>
                 </Navbar>
 
                 <main role={"main"} className={"mt-4 container"}>
 
-                    <Project />
+                    <Project/>
 
                     <div className={"row"}>
                         <div className={"col-12"}>
-                            <hr className={"mt-5"} />
+                            <hr className={"mt-5"}/>
                             <p className={"text-center text-muted"}>&copy; Dockyard</p>
                         </div>
                     </div>

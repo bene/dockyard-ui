@@ -1,51 +1,51 @@
 body {
     font-family: 'Quicksand', sans-serif;
     background: #F4F7FD;
-    background: url(https://github.com/images/modules/site/heroes/simple-codelines.svg),#2b3137;
+    background: url(https://github.com/images/modules/site/heroes/simple-codelines.svg), #2b3137;
     background-size: 100% auto;
 }
 
 .login main {
-    padding-top: 8rem!important;
+    padding-top: 8rem !important;
 }
 
 .login .container {
-    max-width: 1024px!important;
+    max-width: 1024px !important;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: #ffffff;
+    color: #ffffff;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-  color: #ffffff;
+    color: #ffffff;
 }
 
 .card.border-danger {
-  border-width: 1px 1px 1px 4px;
-  border-color: rgba(0,0,0,.125)!important;
-  border-left-color: var(--danger)!important;
+    border-width: 1px 1px 1px 4px;
+    border-color: rgba(0, 0, 0, .125) !important;
+    border-left-color: var(--danger) !important;
 }
 
 .card.border-success {
-  border-width: 1px 1px 1px 4px;
-  border-color: rgba(0,0,0,.125)!important;
-  border-left-color: var(--success)!important;
+    border-width: 1px 1px 1px 4px;
+    border-color: rgba(0, 0, 0, .125) !important;
+    border-left-color: var(--success) !important;
 }
 
 .card.border-primary {
-  border-width: 1px 1px 1px 4px;
-  border-color: rgba(0,0,0,.125)!important;
-  border-left-color: var(--primary)!important;
+    border-width: 1px 1px 1px 4px;
+    border-color: rgba(0, 0, 0, .125) !important;
+    border-left-color: var(--primary) !important;
 }
 
 .blankslate {
-  padding: 6em 0;
-  text-align: center;
+    padding: 6em 0;
+    text-align: center;
 }
 
 @media (min-width: 3440px) {
-  .container {
-    max-width: 1640px;
-  }
+    .container {
+        max-width: 1640px;
+    }
 }

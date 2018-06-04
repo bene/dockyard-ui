@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 class ProjectCreate extends Component {
 
@@ -24,5 +24,5 @@ class ProjectCreateMenu extends Component {
     }
 }
 
-export { ProjectCreateMenu }
+export {ProjectCreateMenu}
 export default ProjectCreate

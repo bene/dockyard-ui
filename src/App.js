@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import React, {Component} from 'react'
+import {BrowserRouter, Route} from 'react-router-dom'
 
 import Dashboard from "./components/Dashboard"
 import Login from "./components/Login"
@@ -11,7 +11,7 @@ class App extends Component {
 
         return (
             <BrowserRouter>
-                { authenticated ? <Dashboard/> : <Login/> }
+                {authenticated ? <Dashboard/> : <Login/>}
             </BrowserRouter>
         )
     }
