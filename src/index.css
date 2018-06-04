@@ -5,6 +5,10 @@ body {
     background-size: 100% auto;
 }
 
+.login main {
+    padding-top: 8rem!important;
+}
+
 .login .container {
     max-width: 1024px!important;
 }

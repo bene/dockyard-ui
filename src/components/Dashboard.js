@@ -17,15 +17,9 @@ class Dashboard extends Component {
     constructor(props) {
         super(props);
 
-        this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false
         };
-    }
-    toggle() {
-        this.setState({
-            isOpen: !this.state.isOpen
-        });
     }
 
     render() {
@@ -35,7 +29,7 @@ class Dashboard extends Component {
                 <Navbar color="dark" dark expand="md" className="p-3">
                     <Container>
                         <NavbarBrand href="/"><span role="img" aria-label="">🐳</span> Dockyard</NavbarBrand>
-                        <NavbarToggler onClick={ this.toggle } />
+                        <NavbarToggler onClick={ () => this.setState({ isOpen: !this.state.isOpen }) } />
 
                         <Collapse isOpen={ this.state.isOpen } navbar>
                             <Nav navbar>
