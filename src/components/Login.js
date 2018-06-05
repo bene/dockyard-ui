@@ -1,23 +1,22 @@
 import React, {Component} from 'react'
+import {Link, Redirect, Route, Switch} from 'react-router-dom'
 import {
-    NavbarBrand,
-    NavbarToggler,
-    NavLink,
-    Collapse,
-    Navbar,
-    Nav,
-    NavItem,
     Button,
     Col,
+    Collapse,
     Container,
-    Row,
-    Jumbotron,
     Form,
-    Label,
     FormGroup,
-    Input
+    Input,
+    Jumbotron,
+    Label,
+    Nav,
+    Navbar,
+    NavbarToggler,
+    NavItem,
+    NavLink,
+    Row
 } from 'reactstrap'
-import {Switch, Route, Redirect, Link} from 'react-router-dom'
 
 class Login extends Component {
 

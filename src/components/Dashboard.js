@@ -1,26 +1,16 @@
 import React, {Component} from 'react'
-import Project, {ProjectMenu} from "./Project"
-import {
-    Container,
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink
-} from 'reactstrap'
-import Projects, {ProjectsMenu} from "./Projects";
-import Notifications from "./Notifications";
+import {Collapse, Container, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from 'reactstrap'
+import ProjectsStore from '../stores/ProjectsStore'
+import Projects, {ProjectsMenu} from "./Projects"
 
 class Dashboard extends Component {
 
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
             isOpen: false
-        };
+        }
     }
 
     render() {
@@ -59,7 +49,7 @@ class Dashboard extends Component {
 
                 <main role={"main"} className={"mt-4 container"}>
 
-                    <Project/>
+                    <Projects store={ProjectsStore}/>
 
                     <div className={"row"}>
                         <div className={"col-12"}>

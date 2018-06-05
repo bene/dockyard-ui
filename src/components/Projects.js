@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Card, Row, Col} from 'reactstrap'
+import {Card, Col, Row} from 'reactstrap'
 
 class Projects extends Component {
 
