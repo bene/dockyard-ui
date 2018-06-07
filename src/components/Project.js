@@ -152,7 +152,7 @@ class ProjectMenu extends Component {
 
     render() {
         return (
-            <div>
+            <Container>
                 <div className="btn-group" role="group" aria-label="Basic example">
                     <button type="button" className="btn btn-outline-success">Run</button>
                     <button type="button" className="btn btn-outline-success">Test</button>
@@ -162,10 +162,12 @@ class ProjectMenu extends Component {
                 <div className="btn-group float-right" role="group" aria-label="Basic example">
                     <button type="button" className="btn btn-outline-primary">Release</button>
                 </div>
-            </div>
+            </Container>
         )
     }
 }
 
-export {ProjectMenu}
-export default Project
+export default {
+    Menu: ProjectMenu,
+    View: Project
+}

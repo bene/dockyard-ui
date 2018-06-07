@@ -1,7 +1,24 @@
 import React, {Component} from 'react'
-import {Collapse, Container, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from 'reactstrap'
-import ProjectsStore from '../stores/ProjectsStore'
-import Projects, {ProjectsMenu} from "./Projects"
+import {Link, Redirect, Route, Switch} from 'react-router-dom'
+import {
+    Collapse,
+    Container,
+    DropdownItem,
+    DropdownMenu,
+    DropdownToggle,
+    Nav,
+    Navbar,
+    NavbarToggler,
+    NavItem,
+    UncontrolledDropdown
+} from 'reactstrap'
+import AuthenticationStore from "../stores/AuthenticationStore"
+import notificationsStore from '../stores/NotificationsStore'
+import projectsStore from '../stores/ProjectsStore'
+import Notifications from "./Notifications"
+import Project from "./Project"
+import Projects from './Projects'
+import ProjectsNew from "./ProjectsNew"
 
 class Dashboard extends Component {
 
@@ -19,44 +36,74 @@ class Dashboard extends Component {
             <div>
                 <Navbar color="dark" dark expand="md" className="p-3">
                     <Container>
-                        <NavbarBrand href="/"><span role="img" aria-label="">🐳</span> Dockyard</NavbarBrand>
+                        <Link to="/" className="navbar-brand"><span role="img" aria-label="">🐳</span> Dockyard</Link>
                         <NavbarToggler onClick={() => this.setState({isOpen: !this.state.isOpen})}/>
 
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav navbar>
                                 <NavItem>
-                                    <NavLink href="/projects">Projects</NavLink>
+                                    <Link className="nav-link" to="/projects">Projects</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/notifications">Notifications</NavLink>
+                                    <Link className="nav-link" to="/notifications">Notifications</Link>
                                 </NavItem>
                             </Nav>
 
                             <Nav className="ml-auto" navbar>
-                                <NavItem>
-                                    <NavLink href="/account">Account</NavLink>
-                                </NavItem>
+                                <UncontrolledDropdown nav inNavbar>
+                                    <DropdownToggle nav caret>
+                                        {AuthenticationStore.user.username}
+                                    </DropdownToggle>
+                                    <DropdownMenu right>
+                                        <DropdownItem onClick={AuthenticationStore.logout}>
+                                            Logout
+                                        </DropdownItem>
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
                             </Nav>
                         </Collapse>
                     </Container>
                 </Navbar>
 
                 <Navbar className="shadow-sm" color="light" light expand="md">
-                    <Container>
-                        <ProjectsMenu/>
-                    </Container>
+                    <Switch>
+                        <Route exact path="/(projects|)" render={(props) => (
+                            <Projects.Menu store={projectsStore}/>
+                        )}/>
+                        <Route exact path="/projects/new" render={(props) => (
+                            <ProjectsNew.Menu store={projectsStore}/>
+                        )}/>
+                        <Route exact path="/project/:projectId" render={(props) => (
+                            <Project.Menu store={projectsStore}/>
+                        )}/>
+                        <Route exact path="/notifications" render={(props) => (
+                            <Notifications.Menu store={notificationsStore}/>
+                        )}/>
+                    </Switch>
                 </Navbar>
 
                 <main role={"main"} className={"mt-4 container"}>
-
-                    <Projects store={ProjectsStore}/>
-
-                    <div className={"row"}>
-                        <div className={"col-12"}>
-                            <hr className={"mt-5"}/>
-                            <p className={"text-center text-muted"}>&copy; Dockyard</p>
-                        </div>
-                    </div>
+                    <Switch>
+                        <Route exact path="/(projects|)" render={(props) => (
+                            <Projects.View store={projectsStore}/>
+                        )}/>
+                        <Route exact path="/projects/new" render={(props) => (
+                            <ProjectsNew.View store={projectsStore}/>
+                        )}/>
+                        <Route exact path="/project/:projectId" render={(props) => (
+                            <Project.View store={projectsStore}/>
+                        )}/>
+                        <Route exact path="/notifications" render={(props) => (
+                            <Notifications.View store={notificationsStore}/>
+                        )}/>
+                        <Route exact path="/user/logout" render={(props) => {
+                            AuthenticationStore.logout()
+                            return <div/>
+                        }}/>
+                        <Route exact path="/user/(login|create)" render={() => (
+                            <Redirect to="/"/>
+                        )}/>
+                    </Switch>
                 </main>
             </div>
         )
