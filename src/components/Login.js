@@ -177,7 +177,7 @@ class SignUp extends Component {
     submit(e) {
         e.preventDefault()
 
-        AuthenticationStore.signIn(this.state.form).catch((err) => {
+        AuthenticationStore.signUp(this.state.form).catch((err) => {
             this.setState({
                 errorMessage: err.message
             })

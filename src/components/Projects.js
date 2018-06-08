@@ -6,6 +6,10 @@ import {Card, Col, Container, Row} from 'reactstrap'
 @observer
 class Projects extends Component {
 
+    componentDidMount() {
+        this.props.store.setQuery("")
+    }
+
     render() {
 
         const blankSlate = (

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Card, Col, Container} from 'reactstrap'
+import {Card, Col, Container, Row} from 'reactstrap'
 
 class Notifications extends Component {
 
@@ -25,7 +25,27 @@ class Notifications extends Component {
             </Card>
         )
 
-        return this.props.store.notifications.length === 0 ? blankSlate : this.props.store.queriedNotifications.length === 0 ? noMatch : notificationCards
+        return this.props.store.notifications.length === 0 ? blankSlate : this.props.store.queriedNotifications.length === 0 ? noMatch : (
+            <Row>
+                <Col sm="2">
+                    <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                         aria-orientation="vertical">
+                        <a className="nav-link active" id="v-pills-home-tab" data-toggle="pill"
+                           role="tab" aria-selected="true">Unread</a>
+                        <a className="nav-link" id="v-pills-profile-tab" data-toggle="pill"
+                           role="tab" aria-selected="false">Error</a>
+                        <a className="nav-link" id="v-pills-messages-tab" data-toggle="pill"
+                           role="tab" aria-selected="false">Warnings</a>
+                        <a className="nav-link" id="v-pills-settings-tab" data-toggle="pill"
+                           role="tab" aria-selected="false">Info</a>
+                    </div>
+                </Col>
+
+                <Col sm="10">
+                    {notificationCards}
+                </Col>
+            </Row>
+        )
     }
 }
 

@@ -21,7 +21,7 @@ class App extends Component {
 
         return (
             <BrowserRouter>
-                {AuthenticationStore.status === Status.DONE ? AuthenticationStore.authenticated ? <Dashboard/> :
+                {AuthenticationStore.status === Status.DONE ? AuthenticationStore.authenticated ? <Dashboard session={ AuthenticationStore }/> :
                     <Login/> :
                     <LoadingScreen/>}
             </BrowserRouter>

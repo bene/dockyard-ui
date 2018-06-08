@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React, {Component} from 'react'
 import {Link, Redirect, Route, Switch} from 'react-router-dom'
 import {
@@ -12,7 +13,7 @@ import {
     NavItem,
     UncontrolledDropdown
 } from 'reactstrap'
-import AuthenticationStore from "../stores/AuthenticationStore"
+import {AuthenticationStore} from "../stores/AuthenticationStore"
 import notificationsStore from '../stores/NotificationsStore'
 import projectsStore from '../stores/ProjectsStore'
 import Notifications from "./Notifications"
@@ -33,7 +34,7 @@ class Dashboard extends Component {
     render() {
 
         return (
-            <div>
+            <React.Fragment>
                 <Navbar color="dark" dark expand="md" className="p-3">
                     <Container>
                         <Link to="/" className="navbar-brand"><span role="img" aria-label="">🐳</span> Dockyard</Link>
@@ -52,10 +53,10 @@ class Dashboard extends Component {
                             <Nav className="ml-auto" navbar>
                                 <UncontrolledDropdown nav inNavbar>
                                     <DropdownToggle nav caret>
-                                        {AuthenticationStore.user.username}
+                                        {this.props.session.user.username}
                                     </DropdownToggle>
                                     <DropdownMenu right>
-                                        <DropdownItem onClick={AuthenticationStore.logout}>
+                                        <DropdownItem onClick={this.props.session.logout}>
                                             Logout
                                         </DropdownItem>
                                     </DropdownMenu>
@@ -97,7 +98,7 @@ class Dashboard extends Component {
                             <Notifications.View store={notificationsStore}/>
                         )}/>
                         <Route exact path="/user/logout" render={(props) => {
-                            AuthenticationStore.logout()
+                            this.props.session.logout()
                             return <div/>
                         }}/>
                         <Route exact path="/user/(login|create)" render={() => (
@@ -105,9 +106,13 @@ class Dashboard extends Component {
                         )}/>
                     </Switch>
                 </main>
-            </div>
+            </React.Fragment>
         )
     }
+}
+
+Dashboard.propTypes = {
+    session: PropTypes.instanceOf(AuthenticationStore)
 }
 
 export default Dashboard

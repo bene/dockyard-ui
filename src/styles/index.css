@@ -4,8 +4,8 @@ body {
 }
 
 .login-screen {
-    background: url(https://github.com/images/modules/site/heroes/simple-codelines.svg), #2b3137!important;
-    background-size: 100% auto!important;
+    background: url(https://github.com/images/modules/site/heroes/simple-codelines.svg), #2b3137 !important;
+    background-size: 100% auto !important;
 }
 
 .login main {

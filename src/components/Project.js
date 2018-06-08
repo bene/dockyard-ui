@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
-import {Container} from 'reactstrap'
+import {Container, Row} from 'reactstrap'
 
 class Project extends Component {
 
     render() {
 
         return (
-            <div>
-                <div className={"row"}>
+            <React.Fragment>
+                <Row>
                     <div className={"col-sm-4"}>
                         <div className="card border-success shadow-sm mb-3">
                             <div className="card-header">Build complete</div>
@@ -142,8 +142,8 @@ class Project extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </Row>
+            </React.Fragment>
         )
     }
 }

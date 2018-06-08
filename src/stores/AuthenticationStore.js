@@ -6,13 +6,13 @@ const ErrorInvalidCredentials = new Error("invalid credentials")
 class AuthenticationStore {
 
     @observable
-    authenticated
-
-    @observable
-    user
+    authenticated = false
 
     @observable
     status = Status.PENDING
+
+    @observable
+    user
 
     constructor() {
 
@@ -24,16 +24,14 @@ class AuthenticationStore {
         const storedToken = localStorage.getItem("TOKEN")
 
         if (!storedToken) {
-            this.authenticated = false
             this.status = Status.DONE
             return
         }
 
-        if (this.validateToken(storedToken)) {
-            this.parseToken(storedToken)
+        if (this.validateToken(storedToken) && this.parseToken(storedToken)) {
             this.authenticated = true
         } else {
-            this.authenticated = false
+            this.logout()
         }
 
         this.status = Status.DONE
@@ -45,19 +43,24 @@ class AuthenticationStore {
 
     storeToken(token) {
         localStorage.setItem("TOKEN", token)
-        localStorage.setItem("KNOWN", true)
+        localStorage.setItem("KNOWN", true.toString())
     }
 
-    parseToken() {
-        this.user = {
-            username: "bene",
-            email: "benedict@flowengine.cc"
+    @action
+    parseToken(token) {
+
+        let data
+
+        try {
+            const body = token.split(".")[1]
+            const decoded = window.atob(body)
+            data = JSON.parse(decoded)
+        } catch (e) {
+            return false
         }
-    }
 
-    @action logout() {
-        localStorage.removeItem("TOKEN")
-        this.authenticated = false
+        this.user = data.user
+        return true
     }
 
     @action
@@ -69,14 +72,14 @@ class AuthenticationStore {
 
         const data = await res.json()
         const success = true
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYmVuZSIsImVtYWlsIjoiYmVuZWRpY3RAZmxvd2VuZ2luZS5jYyJ9fQ.JD6rgul47GSPdTZH_v1H4i4Qdotd5fVtL4qvGtWjsFE"
 
-        if (success) {
+        if (success && token) {
             runInAction(() => {
-                const token = "MOCK_TOKEN"
-
-                this.parseToken(token)
-                this.storeToken(token)
-                this.authenticated = this.validateToken(token)
+                if (this.parseToken(token)) {
+                    this.storeToken(token)
+                    this.authenticated = true
+                }
             })
         } else {
             throw ErrorInvalidCredentials
@@ -92,19 +95,27 @@ class AuthenticationStore {
 
         const data = await res.json()
         const success = true
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYmVuZSIsImVtYWlsIjoiYmVuZWRpY3RAZmxvd2VuZ2luZS5jYyJ9fQ.JD6rgul47GSPdTZH_v1H4i4Qdotd5fVtL4qvGtWjsFE"
 
-        if (success) {
+
+        if (success && token) {
             runInAction(() => {
-                const token = "MOCK_TOKEN"
-
-                this.parseToken(token)
-                this.storeToken(token)
-                this.authenticated = this.validateToken(token)
+                if (this.parseToken(token)) {
+                    this.storeToken(token)
+                    this.authenticated = true
+                }
             })
         } else {
             throw ErrorInvalidCredentials
         }
     }
+
+    @action
+    logout() {
+        localStorage.removeItem("TOKEN")
+        this.authenticated = false
+    }
 }
 
+export { AuthenticationStore }
 export default new AuthenticationStore()
